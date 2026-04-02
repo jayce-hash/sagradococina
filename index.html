@@ -92,6 +92,8 @@
             width: 90%;
             height: auto;
             margin-bottom: 2rem;
+            /* This property makes the white background of the JPG transparent */
+            mix-blend-mode: multiply; 
         }
 
         .hero h1 {
@@ -138,6 +140,17 @@
             margin-bottom: 0.5rem;
         }
 
+        .hours-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 0.5rem;
+            font-size: 1.05rem;
+        }
+
+        .hours-list li {
+            margin-bottom: 0.2rem;
+        }
+
         .cta-btn {
             display: inline-block;
             margin-top: 1rem;
@@ -172,7 +185,7 @@
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 1fr 1fr; /* Two columns on desktop */
+            grid-template-columns: 1fr 1fr;
             column-gap: 4rem;
             row-gap: 2rem;
         }
@@ -228,6 +241,45 @@
             max-width: 90%;
         }
 
+        /* --- GALLERY SECTION --- */
+        .gallery-section {
+            padding: 5rem 5%;
+            background-color: #ffffff;
+            text-align: center;
+        }
+
+        .gallery-section h2 {
+            font-size: 2.8rem;
+            margin-bottom: 3rem;
+            color: var(--dark-green);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            aspect-ratio: 1 / 1;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.08); /* Adds a nice zoom effect on hover */
+        }
+
         /* --- FOOTER --- */
         footer {
             background-color: var(--dark-green);
@@ -244,7 +296,7 @@
         /* --- RESPONSIVE DESIGN --- */
         @media (max-width: 900px) {
             .menu-container {
-                grid-template-columns: 1fr; /* Single column on tablets/mobile */
+                grid-template-columns: 1fr;
             }
         }
 
@@ -255,11 +307,13 @@
             }
             nav ul {
                 gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
             }
             .hero h1 {
                 font-size: 2rem;
             }
-            .menu-section-title {
+            .menu-section-title, .gallery-section h2 {
                 font-size: 2.2rem;
             }
         }
@@ -275,6 +329,7 @@
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#menu">Menu</a></li>
+                <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#visit">Visit Us</a></li>
             </ul>
         </nav>
@@ -295,12 +350,16 @@
         </div>
 
         <div class="info-card">
-            <h3>Contact</h3>
+            <h3>Contact & Hours</h3>
             <p><strong>Phone:</strong></p>
             <p><a href="tel:+12543004100" style="color: var(--text-dark); text-decoration: underline;">(254) 300-4100</a></p>
             <br>
             <p><strong>Hours:</strong></p>
-            <p><em>Contact us for daily hours</em></p>
+            <ul class="hours-list">
+                <li><strong>Mon - Thu:</strong> 10:00 AM - 10:00 PM</li>
+                <li><strong>Fri - Sat:</strong> 10:00 AM - 11:00 PM</li>
+                <li><strong>Sun:</strong> 10:00 AM - 9:00 PM</li>
+            </ul>
         </div>
     </section>
 
@@ -834,6 +893,18 @@
                 </div>
 
             </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="gallery-section">
+        <h2>Gallery</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item"><img src="https://via.placeholder.com/600?text=Photo+1" alt="Sagrado Cocina Dish 1"></div>
+            <div class="gallery-item"><img src="https://via.placeholder.com/600?text=Photo+2" alt="Sagrado Cocina Dish 2"></div>
+            <div class="gallery-item"><img src="https://via.placeholder.com/600?text=Photo+3" alt="Sagrado Cocina Atmosphere"></div>
+            <div class="gallery-item"><img src="https://via.placeholder.com/600?text=Photo+4" alt="Sagrado Cocina Drinks"></div>
+            <div class="gallery-item"><img src="https://via.placeholder.com/600?text=Photo+5" alt="Sagrado Cocina Special"></div>
+            <div class="gallery-item"><img src="https://via.placeholder.com/600?text=Photo+6" alt="Sagrado Cocina Interior"></div>
         </div>
     </section>
 
