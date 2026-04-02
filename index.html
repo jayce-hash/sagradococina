@@ -11,9 +11,9 @@
     <style>
         /* --- BRAND COLORS & VARIABLES --- */
         :root {
-            --dark-green: #143126; /* Matched to logo text */
-            --gold: #d89b54;       /* Matched to vines/rays */
-            --deep-red: #a32c2f;   /* Matched to heart */
+            --dark-green: #143126;
+            --gold: #d89b54;
+            --deep-red: #a32c2f;
             --bg-light: #fcfcfb;
             --text-dark: #222222;
         }
@@ -32,7 +32,7 @@
             line-height: 1.6;
         }
 
-        h1, h2, h3 {
+        h1, h2, h3, h4 {
             font-family: 'Playfair Display', serif;
             color: var(--dark-green);
         }
@@ -61,7 +61,7 @@
         }
 
         .nav-brand img {
-            height: 60px; /* Small logo for header */
+            height: 60px;
             width: auto;
         }
 
@@ -106,7 +106,7 @@
             margin: 0 auto;
         }
 
-        /* --- INFO SECTION (Location & Contact) --- */
+        /* --- INFO SECTION --- */
         .info-section {
             padding: 4rem 5%;
             display: flex;
@@ -155,25 +155,77 @@
             color: #fff;
         }
 
-        /* --- MENU PLACEHOLDER --- */
+        /* --- MENU SECTION --- */
         .menu-section {
             padding: 5rem 5%;
-            text-align: center;
             background-color: var(--bg-light);
         }
 
-        .menu-section h2 {
-            font-size: 2.5rem;
+        .menu-section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 3rem;
+            color: var(--dark-green);
+        }
+
+        .menu-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Two columns on desktop */
+            column-gap: 4rem;
+            row-gap: 2rem;
+        }
+
+        .menu-category {
+            margin-bottom: 2rem;
+        }
+
+        .menu-category h3 {
+            font-size: 1.8rem;
+            color: var(--gold);
+            border-bottom: 2px solid var(--deep-red);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .menu-item {
             margin-bottom: 1.5rem;
         }
 
-        .menu-placeholder {
-            border: 2px dashed var(--gold);
-            padding: 4rem 2rem;
-            max-width: 800px;
-            margin: 0 auto;
-            border-radius: 8px;
-            background-color: #fff;
+        .menu-item-header {
+            display: flex;
+            align-items: baseline;
+            margin-bottom: 0.2rem;
+        }
+
+        .menu-item-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--dark-green);
+        }
+
+        .menu-dots {
+            flex-grow: 1;
+            border-bottom: 2px dotted #ccc;
+            margin: 0 10px;
+            opacity: 0.6;
+        }
+
+        .menu-item-price {
+            font-weight: 600;
+            color: var(--deep-red);
+            font-size: 1.1rem;
+        }
+
+        .menu-item-desc {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.4;
+            max-width: 90%;
         }
 
         /* --- FOOTER --- */
@@ -190,6 +242,12 @@
         }
 
         /* --- RESPONSIVE DESIGN --- */
+        @media (max-width: 900px) {
+            .menu-container {
+                grid-template-columns: 1fr; /* Single column on tablets/mobile */
+            }
+        }
+
         @media (max-width: 768px) {
             header {
                 flex-direction: column;
@@ -200,6 +258,9 @@
             }
             .hero h1 {
                 font-size: 2rem;
+            }
+            .menu-section-title {
+                font-size: 2.2rem;
             }
         }
     </style>
@@ -230,7 +291,7 @@
             <h3>Find Us</h3>
             <p><strong>Address:</strong></p>
             <p>215 S University Parks Dr<br>Ste 107<br>Waco, TX 76701</p>
-            <a href="https://maps.google.com/?q=215+S+University+Parks+Dr+Ste+107+Waco,+TX+76701" target="_blank" class="cta-btn">Get Directions</a>
+            <a href="https://maps.google.com/?q=215+S+University+Parks+Dr+Ste+107+Waco+TX+76701" target="_blank" class="cta-btn">Get Directions</a>
         </div>
 
         <div class="info-card">
@@ -239,20 +300,545 @@
             <p><a href="tel:+12543004100" style="color: var(--text-dark); text-decoration: underline;">(254) 300-4100</a></p>
             <br>
             <p><strong>Hours:</strong></p>
-            <p><em>Coming Soon</em></p>
+            <p><em>Contact us for daily hours</em></p>
         </div>
     </section>
 
     <section id="menu" class="menu-section">
-        <h2>Our Menus</h2>
-        <div class="menu-placeholder">
-            <h3>Menus Coming Soon</h3>
-            <p>Check back shortly to view our full food and bar offerings!</p>
+        <h2 class="menu-section-title">Our Menu</h2>
+        
+        <div class="menu-container">
+            <div class="menu-column">
+                
+                <div class="menu-category">
+                    <h3>Las Botanas</h3>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-title">Guacamole</span>
+                            <div class="menu-dots"></div>
+                            <span class="menu-item-price">$8.00</span>
+                        </div>
+                        <p class="menu-item-desc">Fresh diced avocados, onion, cilantro, and lime.</p>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-title">Dip Dipper</span>
+                            <div class="menu-dots"></div>
+                            <span class="menu-item-price">$15.00</span>
+                        </div>
+                        <p class="menu-item-desc">Queso, bean chorizo dip and guacamole.</p>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-title">Grilled Mexican Street Corn</span>
+                            <div class="menu-dots"></div>
+                            <span class="menu-item-price">$8.00</span>
+                        </div>
+                        <p class="menu-item-desc">Grilled corn cob, crema, queso fresco and tajin.</p>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-title">Alitas</span>
+                            <div class="menu-dots"></div>
+                            <span class="menu-item-price">$12.00</span>
+                        </div>
+                        <p class="menu-item-desc">Chicken wing glazed with our signature sauce (6).</p>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-title">Queso And Chips</span>
+                            <div class="menu-dots"></div>
+                            <span class="menu-item-price">$7.00</span>
+                        </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-title">Queso Fundido</span>
+                            <div class="menu-dots"></div>
+                            <span class="menu-item-price">$11.00</span>
+                        </div>
+                        <p class="menu-item-desc">Oaxaca and monterrey melted cheese, with marinated chorizo or rajas.</p>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-title">Ribeye Chicharron</span>
+                            <div class="menu-dots"></div>
+                            <span class="menu-item-price">$18.00</span>
+                        </div>
+                        <p class="menu-item-desc">Crispy fried ribye steak laid on a bed of guac.</p>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-title">Nachos</span>
+                            <div class="menu-dots"></div>
+                            <span class="menu-item-price">$12.00</span>
+                        </div>
+                        <p class="menu-item-desc">Towering stack of tortilla chips, refried beans, queso, pico de gallo, guac, crema and pickle jalapeno and your choice of meat. Carnitas steak grilled chicken.</p>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-title">Chicharron</span>
+                            <div class="menu-dots"></div>
+                            <span class="menu-item-price">$11.00</span>
+                        </div>
+                        <p class="menu-item-desc">Crisp fried pork belly on tomatillo sauce.</p>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-title">Sopes</span>
+                            <div class="menu-dots"></div>
+                            <span class="menu-item-price">$11.00</span>
+                        </div>
+                        <p class="menu-item-desc">Slow-cooked pork shoulder, crispy masa cakes, cabbage slaw, avocado, cream, queso fresco and salsa verde.</p>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-title">Taquitos</span>
+                            <div class="menu-dots"></div>
+                            <span class="menu-item-price">$9.00</span>
+                        </div>
+                        <p class="menu-item-desc">A folded tortilla filled with chicken tinga frizzled, queso fresco and cream (4).</p>
+                    </div>
+                </div>
+
+                <div class="menu-category">
+                    <h3>Enchiladas</h3>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-title">Enchiladas Rojas</span>
+                            <div class="menu-dots"></div>
+                            <span class="menu-item-price">$13.00</span>
+                        </div>
+                        <p class="menu-item-desc">Dried chiles adobo, sheered beef. Queso fresco, rice and beans.</p>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-title">Enchiladas Suizas</span>
+                            <div class="menu-dots"></div>
+                            <span class="menu-item-price">$13.00</span>
+                        </div>
+                        <p class="menu-item-desc">3 chicken enchiladas with melted cheese topped with tomatillo sauce, cream and queso fresco with a side of rice and beans.</p>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-title">Enchiladas Al Carbon</span>
+                            <div class="menu-dots"></div>
+                            <span class="menu-item-price">$13.00</span>
+                        </div>
+                        <p class="menu-item-desc">Rolled flour tortilla (2) filled with steak, topped with queso dip accompanied by rice and beans.</p>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-title">Enfrijoladas</span>
+                            <div class="menu-dots"></div>
+                            <span class="menu-item-price">$13.00</span>
+                        </div>
+                        <p class="menu-item-desc">Chicken enchiladas (3) on bean sauce, queso fresco and crema. Garnished with rice.</p>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-title">Spinach Enchiladas</span>
+                            <div class="menu-dots"></div>
+                            <span class="menu-item-price">$13.00</span>
+                        </div>
+                        <p class="menu-item-desc">3 rolled corn tortillas filled with spinach and artichokes topped with our sour cream sauce. Served with rice and beans.</p>
+                    </div>
+                </div>
+
+                <div class="menu-category">
+                    <h3>Sopas Y Ensaladas</h3>
+
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-title">House Salad</span>
+                            <div class="menu-dots"></div>
+                            <span class="menu-item-price">$11.00</span>
+                        </div>
+                        <p class="menu-item-desc">Choice of meat, spring mix, tomatoes, cheese and avocado.</p>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-title">Taco Salad</span>
+                            <div class="menu-dots"></div>
+                            <span class="menu-item-price">$11.00</span>
+                        </div>
+                        <p class="menu-item-desc">Tortilla bowl, refried beans, romaine lettuce, cherry tomatoes, monterrey cheese, guaca and crema and your choice of meat.</p>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-title">Chicken Ceasar Salad</span>
+                            <div class="menu-dots"></div>
+                            <span class="menu-item-price">$10.00</span>
+                        </div>
+                        <p class="menu-item-desc">Romaine lettuce, parmesan cheese, croutons and grilled chicken.</p>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-title">Red Velvet Salmon Salad</span>
+                            <div class="menu-dots"></div>
+                            <span class="menu-item-price">$18.00</span>
+                        </div>
+                        <p class="menu-item-desc">Baked salmon, mediterranean arugula, red velvet, balsamic vinaigrette, feta cheese, dry seeds and cranberrys.</p>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-title">Chicken Tortilla Soup</span>
+                            <div class="menu-dots"></div>
+                            <span class="menu-item-price">$11.00</span>
+                        </div>
+                        <p class="menu-item-desc">Roasted chicken broth, chicken chunks, avocados, white cheese, tortilla chips.</p>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-title">Pozolillo Soup</span>
+                            <div class="menu-dots"></div>
+                            <span class="menu-item-price">$11.00</span>
+                        </div>
+                        <p class="menu-item-desc">Tomatillo based broth, chicken chunks, hominy, cabbage, avocado, cilantro and tortilla chips.</p>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-title">Sopa Azteca</span>
+                            <div class="menu-dots"></div>
+                            <span class="menu-item-price">$11.00</span>
+                        </div>
+                        <p class="menu-item-desc">Richly seasoned tomato chili broth ladled hot over crispy tortilla, chicken chunks, avocado and queso fresco.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="menu-column">
+
+                <div class="menu-category">
+                    <h3>Entrees</h3>
+
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-title">Carne Asada</span>
+                            <div class="menu-dots"></div>
+                            <span class="menu-item-price">$16.00</span>
+                        </div>
+                        <p class="menu-item-desc">Marinated grilled to order steak, topped with smoke onion, served with mexican rice charro beans and guacamole salad.</p>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-title">Pechuga Al Chipotle</span>
+                            <div class="menu-dots"></div>
+                            <span class="menu-item-price">$16.00</span>
+                        </div>
+                        <p class="menu-item-desc">Tender chicken breast marinated in roasted chipotle sauce serve with cilantro rice and salted vegetables.</p>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-title">Carnitas</span>
+                            <div class="menu-dots"></div>
+                            <span class="menu-item-price">$15.00</span>
+                        </div>
+                        <p class="menu-item-desc">Slow cooked pork shoulder served with pico de gallo, mexican rice and beans.</p>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-title">Fajitas</span>
+                            <div class="menu-dots"></div>
+                            <span class="menu-item-price">$18.00</span>
+                        </div>
+                        <p class="menu-item-desc">Choice of meat, chicken, beef or mix fajitas with salted bell pepper, onion served with mexican rice, charro beans, pico and guac. Add shrimp $3.50.</p>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-title">Rib-Eye Con Tuetano</span>
+                            <div class="menu-dots"></div>
+                            <span class="menu-item-price">$24.00</span>
+                        </div>
+                        <p class="menu-item-desc">Grill rib-eye steak with marrow bone salted bell pepper onion served with cilantro rice and vegetables. Add shrimp $3.50.</p>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-title">Blackened Salmon</span>
+                            <div class="menu-dots"></div>
+                            <span class="menu-item-price">$22.00</span>
+                        </div>
+                        <p class="menu-item-desc">A perfectly grill salmon filet, with cilantro rice and salted vegetables.</p>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-title">Baja Shrimp Tacos</span>
+                            <div class="menu-dots"></div>
+                            <span class="menu-item-price">$16.00</span>
+                        </div>
+                        <p class="menu-item-desc">Flour tortilla with lightly battered fried shrimp (2), cabbage, pico de gallo. Cilantro rice and cilantre dressing.</p>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-title">Camarones A La Diabla</span>
+                            <div class="menu-dots"></div>
+                            <span class="menu-item-price">$16.00</span>
+                        </div>
+                        <p class="menu-item-desc">Grilled shrimp on deviled sauce with cilantro rice and salted vegetables.</p>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-title">Camarones Al Ajo</span>
+                            <div class="menu-dots"></div>
+                            <span class="menu-item-price">$16.00</span>
+                        </div>
+                        <p class="menu-item-desc">Grilled shrimp on a butterly garlic sauce served with cilantro rice and vegetables.</p>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-title">Pollo Al Grill</span>
+                            <div class="menu-dots"></div>
+                            <span class="menu-item-price">$16.50</span>
+                        </div>
+                        <p class="menu-item-desc">Chicken breast with a cheese stuffed chilaca pepper. Served with guacamole, mexican rice and whole beans.</p>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-title">Trompo Al Pastor</span>
+                            <div class="menu-dots"></div>
+                            <span class="menu-item-price">$24.00</span>
+                        </div>
+                        <p class="menu-item-desc">Marinated pork steaks in a spinning top served with charro beans, cilantro, grill pineapple, onion and tortillas.</p>
+                    </div>
+                </div>
+
+                <div class="menu-category">
+                    <h3>Tacos & More</h3>
+
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-title">Street Tacos</span>
+                            <div class="menu-dots"></div>
+                            <span class="menu-item-price">$13.00</span>
+                        </div>
+                        <p class="menu-item-desc">Three steak tacos on corn tortillas, topped with cilantro, onion, cotija cheese and avocado. Served with a cup of charro beans.</p>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-title">Tacos De Pastor</span>
+                            <div class="menu-dots"></div>
+                            <span class="menu-item-price">$13.00</span>
+                        </div>
+                        <p class="menu-item-desc">Three marinated pork tacos on corn tortillas, topped with pineapple, red onion, cilantro and bowl of charro beans.</p>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-title">Carnitas Tacos</span>
+                            <div class="menu-dots"></div>
+                            <span class="menu-item-price">$13.00</span>
+                        </div>
+                        <p class="menu-item-desc">Slow cooked pork shoulder tacos (3) topped with pico de gallo, served with rice.</p>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-title">Birria Tacos</span>
+                            <div class="menu-dots"></div>
+                            <span class="menu-item-price">$14.00</span>
+                        </div>
+                        <p class="menu-item-desc">Birria filled tacos (3) garnish with onion, cilantro, rice and consome.</p>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-title">Quesa-Birria</span>
+                            <div class="menu-dots"></div>
+                            <span class="menu-item-price">$15.00</span>
+                        </div>
+                        <p class="menu-item-desc">Quesadillas filled with birria on corn tortillas (3) served with rice and consome.</p>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-title">Volcanes</span>
+                            <div class="menu-dots"></div>
+                            <span class="menu-item-price">$12.00</span>
+                        </div>
+                        <p class="menu-item-desc">Roasted corn tortillas (3) topped with melted cheese, steak fajita, arugula, guac and radish.</p>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-title">La Quesadilla</span>
+                            <div class="menu-dots"></div>
+                            <span class="menu-item-price">$12.00</span>
+                        </div>
+                        <p class="menu-item-desc">Large quesadilla with your choice of meat (beef or chicken) served with pico de gallo, guac and sour cream.</p>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-title">Quesadillas De Flor De Calabaza</span>
+                            <div class="menu-dots"></div>
+                            <span class="menu-item-price">$13.00</span>
+                        </div>
+                        <p class="menu-item-desc">Homemade corn tortillas (2) stuffed with zucchini blossoms, monterrey jack cheese with pico de gallo, lettuce, queso fresco. Accompanied with rice and whole beans.</p>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-title">Tlacoyo De Huitlacoche</span>
+                            <div class="menu-dots"></div>
+                            <span class="menu-item-price">$14.00</span>
+                        </div>
+                        <p class="menu-item-desc">Thick blue corn tortilla, huitlacoche, poblano peppers, cheese, red onions. Served with whole beans and rice.</p>
+                    </div>
+                </div>
+
+                <div class="menu-category">
+                    <h3>Lunch Menu</h3>
+
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-title">Fajita Plate</span>
+                            <div class="menu-dots"></div>
+                            <span class="menu-item-price">$14.00</span>
+                        </div>
+                        <p class="menu-item-desc">Choice of meat chicken, beef or mix fajitas with salted bell pepper and onions, served with charro beans, mexican rice and salad.</p>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-title">Enchiladas Suizas</span>
+                            <div class="menu-dots"></div>
+                            <span class="menu-item-price">$11.00</span>
+                        </div>
+                        <p class="menu-item-desc">(3) chicken enchiladas with melted cheese, topped with tomatillo sauce, cream and queso fresco, with a side of rice and beans.</p>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-title">Carnitas</span>
+                            <div class="menu-dots"></div>
+                            <span class="menu-item-price">$12.00</span>
+                        </div>
+                        <p class="menu-item-desc">Slow cooked pork shoulder, served with pico de gallo, mexican rice and refried beans.</p>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-title">Enchiladas Al Carbon</span>
+                            <div class="menu-dots"></div>
+                            <span class="menu-item-price">$11.00</span>
+                        </div>
+                        <p class="menu-item-desc">Rolled flour tortilla (2) filled with steak, topped with queso dip. accompanied by rice and beans.</p>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-title">Street Tacos</span>
+                            <div class="menu-dots"></div>
+                            <span class="menu-item-price">$11.00</span>
+                        </div>
+                        <p class="menu-item-desc">Three steak tacos on corn tortilla, topped with cilantro, onion, cotija cheese, served with a cup of charro beans.</p>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-title">Chimichanga</span>
+                            <div class="menu-dots"></div>
+                            <span class="menu-item-price">$11.00</span>
+                        </div>
+                        <p class="menu-item-desc">Choice of beef fajita or chicken, served with rice, beans, guac, cream.</p>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-title">Quesa-Birria</span>
+                            <div class="menu-dots"></div>
+                            <span class="menu-item-price">$13.00</span>
+                        </div>
+                        <p class="menu-item-desc">(3) quesadillas filled with birria on corn tortillas, served with rice and consome.</p>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-title">Flautas</span>
+                            <div class="menu-dots"></div>
+                            <span class="menu-item-price">$11.00</span>
+                        </div>
+                        <p class="menu-item-desc">Three chicken flautas, served with rice, beans, guac and cream.</p>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-title">Baja Shrimp Tacos</span>
+                            <div class="menu-dots"></div>
+                            <span class="menu-item-price">$12.00</span>
+                        </div>
+                        <p class="menu-item-desc">(2) flour tortilla with lightly fried shrimp, cabbage, pico de gallo, cilantro dressing and mexican rice.</p>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="menu-item-title">House Chicken Salad</span>
+                            <div class="menu-dots"></div>
+                            <span class="menu-item-price">$10.00</span>
+                        </div>
+                        <p class="menu-item-desc">Mixed greens, cherry tomatoes, avocado, red onion chesse and grill chicken.</p>
+                    </div>
+                </div>
+
+                <div class="menu-category">
+                    <h3>Kids Menu</h3>
+                    <ul style="list-style-type: square; padding-left: 20px; font-weight: 600; font-family: 'Playfair Display', serif; color: var(--dark-green); font-size: 1.1rem; margin-bottom: 2rem;">
+                        <li>Cheeseburger With Fries</li>
+                        <li>Chicken Tenders And Fries</li>
+                        <li>Fajita Taco (1) Rice And Beans</li>
+                        <li>Quesadilla (1) Rice And Beans</li>
+                    </ul>
+
+                    <h3>Desserts</h3>
+                    <ul style="list-style-type: square; padding-left: 20px; font-weight: 600; font-family: 'Playfair Display', serif; color: var(--dark-green); font-size: 1.1rem;">
+                        <li>Pan De Elote With Ice Cream</li>
+                        <li>Tres Leches Cake</li>
+                        <li>Churros</li>
+                        <li>Chocoflan</li>
+                        <li>Pie De Guayaba (Guava Pie)</li>
+                    </ul>
+                </div>
+
+            </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 Sagrado Cocina & Bar. All Rights Reserved.</p>
+        <p>© 2026 Sagrado Cocina & Bar. All Rights Reserved.</p>
     </footer>
 
 </body>
